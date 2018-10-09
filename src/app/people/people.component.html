@@ -1,0 +1,42 @@
+<div>
+  <div>
+    <h3>Select file</h3>
+    <label for="file">CSV file:</label>
+    <input type="file"
+           id="file"
+           name="file"
+           (change)="onFileSelected($event)"
+           accept="text/csv"/>
+  </div>
+
+  <div *ngIf="people && people.length; else nodata">
+    <h3>Sort data</h3>
+    <button type="button" (click)="sortByIssueCountAscending()">issue count ascending</button>
+    <button type="button" (click)="sortByIssueCountDescending()">issue count descending</button>
+
+    <h3>People</h3>
+    <table>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Issues</th>
+        <th>Date of birth</th>
+      </tr>
+      <tr *ngFor="let person of people">
+        <td>{{person.firstName}}</td>
+        <td>{{person.surName}}</td>
+        <td>{{person.issueCount}}</td>
+        <td>{{person.dateOfBirth | date}}</td>
+      </tr>
+    </table>
+  </div>
+  <ng-template #nodata>
+    <p>
+      No data yet
+    </p>
+  </ng-template>
+
+  <div *ngIf="error">
+    <p>Oops, something went wrong.. :(</p>
+  </div>
+</div>
