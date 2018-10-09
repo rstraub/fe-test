@@ -11,8 +11,8 @@
 
   <div *ngIf="people && people.length; else nodata">
     <h3>Sort data</h3>
-    <button type="button" (click)="sortByIssueCountAscending()">issue count ascending</button>
-    <button type="button" (click)="sortByIssueCountDescending()">issue count descending</button>
+    <button type="button" id="ascend" (click)="sortByIssueCountAscending()">issue count ascending</button>
+    <button type="button" id="descend" (click)="sortByIssueCountDescending()">issue count descending</button>
 
     <h3>People</h3>
     <table>
